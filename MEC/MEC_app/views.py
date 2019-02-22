@@ -10,4 +10,11 @@ class AppointmentView(viewsets.ModelViewSet):
     serializer_class = AppointmentSerializer
     queryset = Appointment.objects.all()    
 
+class internalCommentView(viewsets.ModelViewSet):
+    serializer_class = internalCommentSerializer
+    queryset = internalComment.objects.all()  
+
+class externalCommentView(viewsets.ModelViewSet):
+    serializer_class = externalCommentSerializer
+    queryset = externalComment.objects.all()  
 

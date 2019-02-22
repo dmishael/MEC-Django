@@ -15,4 +15,4 @@ class internalCommentSerializer(serializers.ModelSerializer):
 class externalCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = externalComment
-        fields = ('extComId', 'comments', 'imgUrl', 'title','siteLink', 'postId', 'content')
+        fields = ('extComId', "appId", "comment")

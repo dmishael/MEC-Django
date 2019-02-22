@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'MEC_app',
     # 'corsheaders',
     'rest_framework',
+    'MEC_app',
 ]
 
 MIDDLEWARE = [
@@ -131,6 +131,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# CORS_ORIGIN_WHITELIST = (
-#          'localhost:3000/'
-#      )
+CORS_ORIGIN_WHITELIST = (
+        'localhost:3000/'
+)

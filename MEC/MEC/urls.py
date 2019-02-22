@@ -5,7 +5,9 @@ from rest_framework import routers
 from MEC_app import views 
 
 router = routers.DefaultRouter()                    
-router.register('appointments', views.AppointmentView, 'appointment')  
+router.register('appointments', views.AppointmentView, 'appointment')
+router.register('internalComments', views.internalCommentView, 'internalComment')
+router.register('externalComments', views.externalCommentView, 'externalComment')  
 
 urlpatterns = [
     url('admin/', admin.site.urls),

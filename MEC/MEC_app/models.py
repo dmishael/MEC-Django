@@ -13,7 +13,7 @@ class Appointment(models.Model):
       eName = models.CharField(max_length=30)
 
       def _str_(self):
-        return self.title
+        return self.time
 
 class internalComment(models.Model):
       intComId = models.AutoField(primary_key=True)
