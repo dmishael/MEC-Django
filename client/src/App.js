@@ -1,25 +1,40 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Appointment from './Appointment';
 import './App.css';
+import SimpleMap from './SimpleMap';
 
 class App extends Component {
+
+  state = {
+    Appointments: {
+      appId: 1,
+      date: "February 10, 2019",
+      time: "10:00 PM",
+      area: "chin",
+      fee: 100,
+      name: "Cindy",
+      eName: "Ahoova",
+  },
+    internalComment: {
+      appId: 1,
+      comment: "string",
+    },
+    externalComment: {
+      appId: 1,
+      comment: "string",
+    }
+  }
+    
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <SimpleMap/>
+        <div>
+          Hello world
+        </div>
+          <nav>hello world</nav>
+          {/* <Appointment appointments = {this.state.date}/> */}
+          
       </div>
     );
   }
