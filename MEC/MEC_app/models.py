@@ -11,6 +11,7 @@ class Appointment(models.Model):
       fee = models.IntegerField(default=0)
       name = models.CharField(max_length=30)
       eName = models.CharField(max_length=30)
+      clientAddress = models.CharField(max_length=100, default = 0)
 
       def _str_(self):
         return self.time
@@ -24,14 +25,14 @@ class internalComment(models.Model):
       def _str_(self):
         return self.comment
 
-class externalComment(models.Model):
-      extComId = models.AutoField(primary_key=True)
+class Image(models.Model):
+      imgId = models.AutoField(primary_key=True)
       appId = models.ForeignKey(
-        Appointment, on_delete=models.CASCADE, related_name="externalComments")
-      comment = models.CharField(max_length=200)
+        Appointment, on_delete=models.CASCADE, related_name="images")
+      image = models.ImageField(height_field=None, width_field=None)
 
       def _str_(self):
-        return self.comment
+        return self.image
         
 
 

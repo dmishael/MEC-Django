@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from .models import Appointment, internalComment, externalComment
+from .models import Appointment, internalComment, Image
 
 class AppointmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Appointment
-        fields = ('appId', 'date', 'time', 'area', 'fee', 'name', 'eName')
+        fields = ('appId', 'date', 'time', 'area', 'fee', 'name', 'eName', 'clientAddress')
 
 class internalCommentSerializer(serializers.ModelSerializer):
     class Meta:
@@ -12,7 +12,7 @@ class internalCommentSerializer(serializers.ModelSerializer):
         fields = ("intComId", "appId", "comment")
 
 
-class externalCommentSerializer(serializers.ModelSerializer):
+class ImageSerializer(serializers.ModelSerializer):
     class Meta:
-        model = externalComment
-        fields = ('extComId', "appId", "comment")
+        model = Image
+        fields = ('imgId', "appId", "image")

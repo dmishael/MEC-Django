@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import Appointments from './Appointments';
 import Appointment from './Appointment';
 import './App.css';
 import SimpleMap from './SimpleMap';
 
+
 class App extends Component {
 
   state = {
-    Appointments: {
+    appointments: [{
       appId: 1,
       date: "February 10, 2019",
       time: "10:00 PM",
@@ -14,26 +17,43 @@ class App extends Component {
       fee: 100,
       name: "Cindy",
       eName: "Ahoova",
-  },
-    internalComment: {
+      clientAddress: "string",
+    }],
+    internalComment: [{
       appId: 1,
       comment: "string",
-    },
-    externalComment: {
+    }],
+    image: [{
       appId: 1,
-      comment: "string",
-    }
+      imageUrl: "string",
+    }]
+  }
+
+  componentDidMount() {
+    this.getAllAppointments()
+    console.log("running")
+  }
+
+  getAllAppointments = () => {
+    axios.get("/api/appointments/").then(res => {
+      console.log("get all appointments returns: " + res.data)
+      this.setState({ appointments: res.data });
+      console.log(this.state.appointments)
+    });
   }
     
   render() {
+    
     return (
+      
       <div>
         <SimpleMap/>
         <div>
-          Hello world
+          
+          <Appointments appointments = {this.state.appointments}/>
+          <Appointment/>
         </div>
           <nav>hello world</nav>
-          {/* <Appointment appointments = {this.state.date}/> */}
           
       </div>
     );

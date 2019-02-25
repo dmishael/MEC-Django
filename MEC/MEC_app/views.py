@@ -3,8 +3,8 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from rest_framework import viewsets          
-from .serializers import AppointmentSerializer, internalCommentSerializer, externalCommentSerializer
-from .models import Appointment, internalComment, externalComment                     
+from .serializers import AppointmentSerializer, internalCommentSerializer, ImageSerializer
+from .models import Appointment, internalComment, Image
 
 class AppointmentView(viewsets.ModelViewSet):
     serializer_class = AppointmentSerializer
@@ -14,7 +14,7 @@ class internalCommentView(viewsets.ModelViewSet):
     serializer_class = internalCommentSerializer
     queryset = internalComment.objects.all()  
 
-class externalCommentView(viewsets.ModelViewSet):
-    serializer_class = externalCommentSerializer
-    queryset = externalComment.objects.all()  
+class ImageView(viewsets.ModelViewSet):
+    serializer_class = ImageSerializer
+    queryset = Image.objects.all()  
 
