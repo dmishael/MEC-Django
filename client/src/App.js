@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Appointments from './Appointments';
-import Appointment from './Appointment';
+// import Appointment from './Appointment';
+// import Comments from './Comments';
 import './App.css';
 import SimpleMap from './SimpleMap';
 
@@ -18,10 +19,10 @@ class App extends Component {
       name: "Cindy",
       eName: "Ahoova",
       clientAddress: "string",
-    }],
-    internalComment: [{
-      appId: 1,
-      comment: "string",
+      internalComment: {
+        appId: 1,
+        comment: "string",
+      },
     }],
     image: [{
       appId: 1,
@@ -32,6 +33,7 @@ class App extends Component {
   componentDidMount() {
     this.getAllAppointments()
     console.log("running")
+    this.getAllComments()
   }
 
   getAllAppointments = () => {
@@ -41,6 +43,14 @@ class App extends Component {
       console.log(this.state.appointments)
     });
   }
+
+  getAllComments = () => {
+    axios.get("/api/internalComments/").then(res => {
+      console.log("get all appointments returns: " + res.data)
+      this.setState({ internalComment: res.data });
+      console.log(this.state.internalComment)
+    });
+  }
     
   render() {
     
@@ -48,11 +58,13 @@ class App extends Component {
       
       <div>
         <SimpleMap/>
-        <div>
+       
           
-          <Appointments appointments = {this.state.appointments}/>
-          <Appointment/>
-        </div>
+          <Appointments
+            appointments = {this.state.appointments}  
+            
+          />
+        
           <nav>hello world</nav>
           
       </div>

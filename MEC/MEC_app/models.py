@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+
 class Appointment(models.Model):
       appId = models.AutoField(primary_key=True)
       date = models.CharField(max_length=100)
@@ -18,8 +19,7 @@ class Appointment(models.Model):
 
 class internalComment(models.Model):
       intComId = models.AutoField(primary_key=True)
-      appId = models.ForeignKey(
-        Appointment, on_delete=models.CASCADE, related_name="internalComments")
+      appId = models.ForeignKey(Appointment, on_delete=models.CASCADE, related_name="internalComments")
       comment = models.CharField(max_length=200)
 
       def _str_(self):
@@ -27,8 +27,7 @@ class internalComment(models.Model):
 
 class Image(models.Model):
       imgId = models.AutoField(primary_key=True)
-      appId = models.ForeignKey(
-        Appointment, on_delete=models.CASCADE, related_name="images")
+#       appId = models.ForeignKey(Appointment, on_delete=models.CASCADE, related_name="images")
       image = models.ImageField(height_field=None, width_field=None)
 
       def _str_(self):

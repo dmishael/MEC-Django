@@ -3,9 +3,11 @@ import Appointment from './Appointment'
 
 class Appointments extends Component {
   render() {
+    // this.props.appointments.map((appointment, i) => {
+    //   console.log(appointment);
+    // })
     return (
       <div>
-        <h1>Appointments!</h1>
         {this.props.appointments.map((appointment, i) => {
         return (
           <Appointment key = {i} 
@@ -16,15 +18,18 @@ class Appointments extends Component {
             appointmentName = {appointment.name}
             appointmentEName = {appointment.eName}
             appointmentClientAddress = {appointment.clientAddress}
+            // comment = {appointment.internalComment.comment}
           />
         )}
 
         )}
+
         
         
         
       </div>
     )
+   
   }
 }
 

@@ -8,11 +8,12 @@ from .models import Appointment, internalComment, Image
 
 class AppointmentView(viewsets.ModelViewSet):
     serializer_class = AppointmentSerializer
-    queryset = Appointment.objects.all()    
+    queryset = Appointment.objects.all()  
 
 class internalCommentView(viewsets.ModelViewSet):
     serializer_class = internalCommentSerializer
     queryset = internalComment.objects.all()  
+
 
 class ImageView(viewsets.ModelViewSet):
     serializer_class = ImageSerializer
