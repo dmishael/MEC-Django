@@ -19,10 +19,10 @@ class App extends Component {
       name: "Cindy",
       eName: "Ahoova",
       clientAddress: "string",
-      internalComment: {
+      internalComments: [{
         appId: 1,
         comment: "string",
-      },
+      }],
     }],
     image: [{
       appId: 1,

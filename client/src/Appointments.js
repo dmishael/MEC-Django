@@ -9,6 +9,7 @@ class Appointments extends Component {
     return (
       <div>
         {this.props.appointments.map((appointment, i) => {
+          console.log(appointment)
         return (
           <Appointment key = {i} 
             appointmentDate = {appointment.date}
@@ -18,7 +19,9 @@ class Appointments extends Component {
             appointmentName = {appointment.name}
             appointmentEName = {appointment.eName}
             appointmentClientAddress = {appointment.clientAddress}
-            // comment = {appointment.internalComment.comment}
+            comment = {appointment.internalComments.length > 0 
+                ? appointment.internalComments[0].comment
+                : null }
           />
         )}
 

@@ -6,11 +6,6 @@ class ImageSerializer(serializers.ModelSerializer):
         model = Image
         fields = ('imgId', "image")
 
-class AppointmentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Appointment
-        fields = ('appId', 'date', 'time', 'area', 'fee', 'name', 'eName', 'clientAddress')
-        # fields = "__all__"
 
 class internalCommentSerializer(serializers.ModelSerializer):
     # appointments = AppointmentSerializer(many=True, read_only=True)
@@ -18,4 +13,10 @@ class internalCommentSerializer(serializers.ModelSerializer):
         model = internalComment
         fields = ("intComId", "appId", "comment")
 
+class AppointmentSerializer(serializers.ModelSerializer):
+    internalComments = internalCommentSerializer(many = True, read_only=True)
+    class Meta:
+        model = Appointment
+        fields = ('appId', 'date', 'time', 'area', 'fee', 'name', 'eName', 'clientAddress', 'internalComments')
+        # fields = "__all__"
 
