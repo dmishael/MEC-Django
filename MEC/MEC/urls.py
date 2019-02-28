@@ -11,5 +11,5 @@ router.register('images', views.ImageView, 'image')
 
 urlpatterns = [
     url('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/v1/', include(router.urls))
 ]

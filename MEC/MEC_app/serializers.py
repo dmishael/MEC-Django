@@ -15,8 +15,8 @@ class internalCommentSerializer(serializers.ModelSerializer):
 
 class AppointmentSerializer(serializers.ModelSerializer):
     internalComments = internalCommentSerializer(many = True, read_only=True)
+    
     class Meta:
         model = Appointment
         fields = ('appId', 'date', 'time', 'area', 'fee', 'name', 'eName', 'clientAddress', 'internalComments')
-        # fields = "__all__"
 

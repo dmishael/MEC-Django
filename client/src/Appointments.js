@@ -10,29 +10,46 @@ class Appointments extends Component {
       <div>
         {this.props.appointments.map((appointment, i) => {
           console.log(appointment)
-        return (
-          <Appointment key = {i} 
-            appointmentDate = {appointment.date}
-            appointmentTime = {appointment.time}
-            appointmentArea = {appointment.area}
-            appointmentFee = {appointment.fee}
-            appointmentName = {appointment.name}
-            appointmentEName = {appointment.eName}
-            appointmentClientAddress = {appointment.clientAddress}
-            comment = {appointment.internalComments.length > 0 
+          return (
+            <Appointment key={i}
+              intComId={appointment.internalComments.length > 0
+                ? appointment.internalComments[0].intComId
+                : null}
+              appointment={appointment}
+              
+              // appId={appointment.appId}
+              // appointment={appointment.intComId}
+              // appointmentDate={appointment.date}
+              // appointmentTime={appointment.time}
+              // appointmentArea={appointment.area}
+              // appointmentFee={appointment.fee}
+              // appointmentName={appointment.name}
+              // appointmentEName={appointment.eName}
+              // appointmentClientAddress={appointment.clientAddress}
+              comment={appointment.internalComments.length > 0
                 ? appointment.internalComments[0].comment
-                : null }
-          />
-        )}
+                : null}
+
+
+              getAllAppointments={this.props.getAllAppointments}
+              getAllComments={this.props.getAllComments}
+              getAllImages={this.props.getAllImages}
+              images={this.props.images}
+
+            />
+
+
+          )
+        }
 
         )}
 
-        
-        
-        
+
+
+
       </div>
     )
-   
+
   }
 }
 

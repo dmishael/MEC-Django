@@ -21,11 +21,12 @@ class App extends Component {
       clientAddress: "string",
       internalComments: [{
         appId: 1,
+        intComId: 1,
         comment: "string",
       }],
     }],
     image: [{
-      appId: 1,
+      imgId: 1,
       imageUrl: "string",
     }]
   }
@@ -34,41 +35,98 @@ class App extends Component {
     this.getAllAppointments()
     console.log("running")
     this.getAllComments()
+    this.getAllImages()
+  }
+
+  getAllComments = () => {
+    axios.get("/api/v1/internalComments/").then(res => {
+      console.log("get all appointments returns: " + res.data)
+      this.setState({ internalComment: res.data });
+      console.log(this.state.internalComment)
+    });
   }
 
   getAllAppointments = () => {
-    axios.get("/api/appointments/").then(res => {
+    axios.get("/api/v1/appointments/").then(res => {
       console.log("get all appointments returns: " + res.data)
       this.setState({ appointments: res.data });
       console.log(this.state.appointments)
     });
   }
 
-  getAllComments = () => {
-    axios.get("/api/internalComments/").then(res => {
-      console.log("get all appointments returns: " + res.data)
-      this.setState({ internalComment: res.data });
-      console.log(this.state.internalComment)
+  getAllImages = () => {
+    axios.get("/api/v1/images/").then(res => {
+      console.log("get all images returns: " + res.data)
+      this.setState({ image: res.data });
+      console.log(this.state.image)
     });
   }
-    
+
+  
+
+  // handleChange = (event) => {
+  //   const newAppointment = { ...this.state.appointments }
+  //   newAppointment[event.target.name] = event.target.value
+  //   this.setState({ appointments: newAppointment })
+  // }
+
+  // handleSubmit = (event) => {
+  //   event.preventDefault()
+  //   const input = this.state.appointments
+  //   axios.post('api/v1/', input).then((res) => {
+  //     this.getAllAppointments()
+
+  //   })
+
+  // }
+
+
   render() {
-    
+
     return (
-      
+
       <div>
-        <SimpleMap/>
-       
-          
-          <Appointments
-            appointments = {this.state.appointments}  
-            
-          />
+        <SimpleMap />
+
+        {/* <form onSubmit={this.handleSubmitAppointment}>
+                    <div>
+                        <input
+                            type="text"
+                            placeholder="Appointment Date"
+                            name="date"
+                            value={this.state.appointments.date}
+                            onChange={this.handleChange}
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type="text"
+                            placeholder="Appointment Date"
+                            name="date"
+                            value={this.state.user.address}
+                            onChange={this.handleChange}
+                        />
+                    </div>
+                    <button>Submit</button>
+
+                </form> */}
+        <Appointments
+          appointments={this.state.appointments}
+          getAllAppointments={this.getAllAppointments}
+          getAllComments={this.getAllComments}
+          getAllImages={this.getAllImages}
+          images={this.state.images}
+          updateComment={this.updateComment}
+
+        />
         
-          <nav>hello world</nav>
-          
+
       </div>
-    );
+
+      // <nav>hello world</nav>
+
+
+    )
   }
 }
 
