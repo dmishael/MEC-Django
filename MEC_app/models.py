@@ -26,9 +26,9 @@ class internalComment(models.Model):
         return self.comment
 
 class Image(models.Model):
-      imgId = models.AutoField(primary_key=True)
+#       imgId = models.AutoField(primary_key=True)
 #       appId = models.ForeignKey(Appointment, on_delete=models.CASCADE, related_name="images")
-      image = models.ImageField(max_length=100)
+      image = models.CharField(max_length=300)
 
       def _str_(self):
         return self.image

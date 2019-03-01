@@ -27,8 +27,8 @@ class App extends Component {
       }],
     }],
     image: [{
-      image: "string",
-      imgId: 1
+      image: "string"
+      // imgId: 1
     }],
   }
 
@@ -77,6 +77,7 @@ class App extends Component {
               key={i}
               image={image.image}
               getAllImages={this.getAllImages}
+              imgId={image.id}
             />
 
           )

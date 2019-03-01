@@ -6,7 +6,7 @@ class ImageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Image
-        fields = ('imgId', "image")
+        fields = "__all__"
 
 
 class internalCommentSerializer(serializers.ModelSerializer):

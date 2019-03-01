@@ -5,8 +5,8 @@ class Image extends Component {
 
     state = {
         image: {
-            image: this.props.image.image,
-            imgId: this.props.image.imgId
+            image: this.props.image.image
+            // imgId: this.props.image.imgId
         }
     }
 
@@ -33,6 +33,16 @@ class Image extends Component {
 
     }
 
+    deleteComment = (event) => {
+        event.preventDefault()
+        axios.delete(`/api/v1/images/${this.props.imgId}/`)
+            .then(() => {
+                this.props.getAllImages()
+            })
+
+    }
+
+
     render() {
         // var imageName = require(this.props.image)
         return (
@@ -51,6 +61,7 @@ class Image extends Component {
                         />
                     </div>
                     <button>Submit</button>
+                    <button onClick={(event) => this.deleteComment(event)}>Delete</button>
                 </form>
             </div>
 
