@@ -5,6 +5,7 @@ import Appointments from './Appointments';
 // import Comments from './Comments';
 import './App.css';
 import SimpleMap from './SimpleMap';
+import Image from './Image';
 
 
 class App extends Component {
@@ -25,10 +26,7 @@ class App extends Component {
         comment: "string",
       }],
     }],
-    image: [{
-      imgId: 1,
-      image: "string",
-    }]
+    image: []
   }
 
   componentDidMount() {
@@ -38,7 +36,7 @@ class App extends Component {
     this.getAllImages()
   }
 
-  
+
 
   getAllAppointments = () => {
     axios.get("/api/v1/appointments/").then(res => {
@@ -64,23 +62,23 @@ class App extends Component {
     });
   }
 
-  
 
-  handleChange = (event) => {
-    const newAppointment = { ...this.state.appointments }
-    newAppointment[event.target.name] = event.target.value
-    this.setState({ appointments: newAppointment })
-  }
 
-  handleSubmit = (event) => {
-    event.preventDefault()
-    const input = this.state.appointments
-    axios.post('api/v1/', input).then((res) => {
-      this.getAllAppointments()
+  // handleChange = (event) => {
+  //   const newAppointment = { ...this.state.appointments }
+  //   newAppointment[event.target.name] = event.target.value
+  //   this.setState({ appointments: newAppointment })
+  // }
 
-    })
+  // handleSubmit = (event) => {
+  //   event.preventDefault()
+  //   const input = this.state.appointments
+  //   axios.post('api/v1/', input).then((res) => {
+  //     this.getAllAppointments()
 
-  }
+  //   })
+
+  // }
 
 
   render() {
@@ -88,37 +86,19 @@ class App extends Component {
     return (
 
       <div>
-        {/* {this.state.image.map((image, i) => {
-          console.log(image)
-          return (
-            <ul>{[image]}</ul>
-          )
-        })
-      } */}
+        {this.state.image.map((image, i) => {
+                    return(
+                        <Image
+                            key = {i}
+                            image = {image.image}
+                            // getAllImages = { this.getAllImages}
+                        />
+
+                    )}
+                )}
         <SimpleMap />
 
-        {/* <form onSubmit={this.handleSubmitAppointment}>
-                    <div>
-                        <input
-                            type="text"
-                            placeholder="Appointment Date"
-                            name="date"
-                            value={this.state.appointments.date}
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            type="text"
-                            placeholder="Appointment Date"
-                            name="date"
-                            value={this.state.user.address}
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                    <button>Submit</button>
-
-                </form> */}
+       
         <Appointments
           appointments={this.state.appointments}
           getAllAppointments={this.getAllAppointments}
@@ -126,15 +106,17 @@ class App extends Component {
           updateComment={this.updateComment}
 
         />
-        
 
       </div>
 
-      // <nav>hello world</nav>
-
 
     )
+
+
+
+
   }
 }
 
-export default App;
+
+  export default App;
