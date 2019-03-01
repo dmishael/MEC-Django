@@ -10,5 +10,5 @@ Link to my Heroku deployed app: https://ezmec.herokuapp.com/api/v1/appointments/
 
 ERD's and Wireframes:
 
-![Wireframe](/IMG_3406.JPG)
+![Wireframe](/IMG_3406.PNG)
 ![ERD](/Project4_ERD.png)
