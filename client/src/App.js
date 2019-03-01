@@ -27,7 +27,7 @@ class App extends Component {
     }],
     image: [{
       imgId: 1,
-      imageUrl: "string",
+      image: "string",
     }]
   }
 
@@ -66,21 +66,21 @@ class App extends Component {
 
   
 
-  // handleChange = (event) => {
-  //   const newAppointment = { ...this.state.appointments }
-  //   newAppointment[event.target.name] = event.target.value
-  //   this.setState({ appointments: newAppointment })
-  // }
+  handleChange = (event) => {
+    const newAppointment = { ...this.state.appointments }
+    newAppointment[event.target.name] = event.target.value
+    this.setState({ appointments: newAppointment })
+  }
 
-  // handleSubmit = (event) => {
-  //   event.preventDefault()
-  //   const input = this.state.appointments
-  //   axios.post('api/v1/', input).then((res) => {
-  //     this.getAllAppointments()
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const input = this.state.appointments
+    axios.post('api/v1/', input).then((res) => {
+      this.getAllAppointments()
 
-  //   })
+    })
 
-  // }
+  }
 
 
   render() {
@@ -88,6 +88,13 @@ class App extends Component {
     return (
 
       <div>
+        {/* {this.state.image.map((image, i) => {
+          console.log(image)
+          return (
+            <ul>{[image]}</ul>
+          )
+        })
+      } */}
         <SimpleMap />
 
         {/* <form onSubmit={this.handleSubmitAppointment}>
@@ -116,8 +123,6 @@ class App extends Component {
           appointments={this.state.appointments}
           getAllAppointments={this.getAllAppointments}
           getAllComments={this.getAllComments}
-          getAllImages={this.getAllImages}
-          images={this.state.images}
           updateComment={this.updateComment}
 
         />

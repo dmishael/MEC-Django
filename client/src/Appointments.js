@@ -33,8 +33,8 @@ class Appointments extends Component {
 
               getAllAppointments={this.props.getAllAppointments}
               getAllComments={this.props.getAllComments}
-              getAllImages={this.props.getAllImages}
-              images={this.props.images}
+              
+              
 
             />
 

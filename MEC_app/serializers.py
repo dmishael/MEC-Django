@@ -2,6 +2,8 @@ from rest_framework import serializers
 from .models import Appointment, internalComment, Image
 
 class ImageSerializer(serializers.ModelSerializer):
+    
+
     class Meta:
         model = Image
         fields = ('imgId', "image")

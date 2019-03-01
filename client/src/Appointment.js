@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Images from './Images'
 
 
 class Appointment extends Component {
@@ -125,16 +124,7 @@ class Appointment extends Component {
     render() {
         return (
             <div>
-                <Images
-                      appointment = {this.state.appointment}
-                      comments = {this.state.comment}
-                      getAllAppointments={this.props.getAllAppointments}
-                      getAllComments={this.props.getAllComments}
-                      getAllImages={this.props.getAllImages}
-                      images={this.props.images}
-
                 
-                />
                 <form onSubmit={this.handleSubmitAppointmentDate}>
                     <div>
                         <input
