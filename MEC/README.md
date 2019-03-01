@@ -17,7 +17,7 @@ Link to my Trello board : https://trello.com/b/9DTzFm5T/gaproject-4ez-mec
 
 Link to my Heroku deployed app: https://ezmec.herokuapp.com/api/v1/appointments/
 
-ERD's and Wireframs:
+ERD's and Wireframes:
 
-![ERD](../IMG_3406.jpg)
-![Wireframe](../Project4_ERD.png)
+![Wireframe](../IMG_3406.JPG)
+![ERD](../Project4_ERD.png)
