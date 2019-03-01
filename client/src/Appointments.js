@@ -16,16 +16,6 @@ class Appointments extends Component {
                 ? appointment.internalComments[0].intComId
                 : null}
               appointment={appointment}
-              
-              // appId={appointment.appId}
-              // appointment={appointment.intComId}
-              // appointmentDate={appointment.date}
-              // appointmentTime={appointment.time}
-              // appointmentArea={appointment.area}
-              // appointmentFee={appointment.fee}
-              // appointmentName={appointment.name}
-              // appointmentEName={appointment.eName}
-              // appointmentClientAddress={appointment.clientAddress}
               comment={appointment.internalComments.length > 0
                 ? appointment.internalComments[0].comment
                 : null}
@@ -33,23 +23,12 @@ class Appointments extends Component {
 
               getAllAppointments={this.props.getAllAppointments}
               getAllComments={this.props.getAllComments}
-              
-              
-
             />
-
-
           )
         }
-
         )}
-
-
-
-
       </div>
     )
-
   }
 }
 

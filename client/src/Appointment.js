@@ -112,19 +112,10 @@ class Appointment extends Component {
 
     }
 
-    // updateComment = () => {
-    //     axios.patch(`/api/v1/internalComments/:commentId`)
-    //       .then((res) => {
-    //           this.props.getPostById()
-    //       })
-    //   }
-
-
-
     render() {
         return (
             <div>
-                
+
                 <form onSubmit={this.handleSubmitAppointmentDate}>
                     <div>
                         <input
@@ -150,18 +141,6 @@ class Appointment extends Component {
 
                 <h1>Appointment:</h1>
                 <ul>{this.props.appointment.date}</ul>
-                {/* <div>
-                        <input
-                            type="text"
-                            placeholder="Address"
-                            name="address"
-                            value={this.state.user.address}
-                            onChange={this.handleChange}
-                        />
-                    </div> */}
-
-
-                {/* <ul>{this.props.appointmentDate}</ul> */}
                 <ul>{this.props.appointment.time}</ul>
                 <ul>{this.props.appointment.name}</ul>
                 <ul>{this.props.appointment.area}</ul>

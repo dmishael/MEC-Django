@@ -28,6 +28,7 @@ class App extends Component {
     }],
     image: [{
       image: "string",
+      imgId: 1
     }],
   }
 
@@ -65,42 +66,25 @@ class App extends Component {
   }
 
 
-
-  // handleChange = (event) => {
-  //   const newAppointment = { ...this.state.appointments }
-  //   newAppointment[event.target.name] = event.target.value
-  //   this.setState({ appointments: newAppointment })
-  // }
-
-  // handleSubmit = (event) => {
-  //   event.preventDefault()
-  //   const input = this.state.appointments
-  //   axios.post('api/v1/', input).then((res) => {
-  //     this.getAllAppointments()
-
-  //   })
-
-  // }
-
-
   render() {
 
     return (
 
       <div>
         {this.state.image.map((image, i) => {
-                    return(
-                        <Image
-                            key = {i}
-                            image = {image.image}
-                            getAllImages = { this.getAllImages}
-                        />
+          return (
+            <Image
+              key={i}
+              image={image.image}
+              getAllImages={this.getAllImages}
+            />
 
-                    )}
-                )}
+          )
+        }
+        )}
         <SimpleMap />
 
-       
+
         <Appointments
           appointments={this.state.appointments}
           getAllAppointments={this.getAllAppointments}
@@ -121,4 +105,4 @@ class App extends Component {
 }
 
 
-  export default App;
+export default App;

@@ -4,14 +4,17 @@ import axios from 'axios';
 class Image extends Component {
 
     state = {
-        image: this.props.image,
-        imgId: ''
+        image: {
+            image: this.props.image.image,
+            imgId: this.props.image.imgId
+        }
     }
 
 
     handleChange = (event) => {
+        event.preventDefault()
         const newImage = { ...this.state.image }
-        
+
         newImage[event.target.name] = event.target.value
         console.log(this.state.image)
         this.setState({ image: newImage })
@@ -20,10 +23,13 @@ class Image extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         const input = this.state.image
-        axios.post('api/v1/images/', input).then((res) => {
-            this.props.getAllAppointments()
+        axios.post('api/v1/images/', input)
+            .then(console.log(input))
+            .then((res) => {
 
-        })
+                this.props.getAllImages()
+
+            })
 
     }
 
@@ -40,17 +46,17 @@ class Image extends Component {
                             type="text"
                             placeholder="Image Url"
                             name="image"
-                            value={this.state.image}
+                            value={this.state.image.image}
                             onChange={this.handleChange}
                         />
                     </div>
                     <button>Submit</button>
-                    </form>
+                </form>
             </div>
 
 
-                );
-            }
-        }
-        
+        );
+    }
+}
+
 export default Image;
