@@ -26,7 +26,9 @@ class App extends Component {
         comment: "string",
       }],
     }],
-    image: []
+    image: [{
+      image: "string",
+    }],
   }
 
   componentDidMount() {
@@ -91,7 +93,7 @@ class App extends Component {
                         <Image
                             key = {i}
                             image = {image.image}
-                            // getAllImages = { this.getAllImages}
+                            getAllImages = { this.getAllImages}
                         />
 
                     )}
