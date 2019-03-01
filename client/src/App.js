@@ -38,19 +38,21 @@ class App extends Component {
     this.getAllImages()
   }
 
-  getAllComments = () => {
-    axios.get("/api/v1/internalComments/").then(res => {
-      console.log("get all appointments returns: " + res.data)
-      this.setState({ internalComment: res.data });
-      console.log(this.state.internalComment)
-    });
-  }
+  
 
   getAllAppointments = () => {
     axios.get("/api/v1/appointments/").then(res => {
       console.log("get all appointments returns: " + res.data)
       this.setState({ appointments: res.data });
       console.log(this.state.appointments)
+    });
+  }
+
+  getAllComments = () => {
+    axios.get("/api/v1/internalComments/").then(res => {
+      console.log("get all appointments returns: " + res.data)
+      this.setState({ internalComment: res.data });
+      console.log(this.state.internalComment)
     });
   }
 

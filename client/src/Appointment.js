@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Images from './images'
+import Images from './Images'
 
 
 class Appointment extends Component {
