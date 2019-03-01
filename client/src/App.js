@@ -6,6 +6,19 @@ import Appointments from './Appointments';
 import './App.css';
 import SimpleMap from './SimpleMap';
 import Image from './Image';
+import styled from 'styled-components';
+
+const Span = styled.div`
+text-align: "center";
+position: absolute;
+top: 10%;
+margin-left: 20%;
+margin-right: 15%;
+font-weight: bold;
+font-size: 16px;
+font-family: Courier New;
+
+`
 
 
 class App extends Component {
@@ -70,7 +83,22 @@ class App extends Component {
 
     return (
 
+<Span>
       <div>
+
+
+
+
+        <Appointments
+          appointments={this.state.appointments}
+          getAllAppointments={this.getAllAppointments}
+          getAllComments={this.getAllComments}
+          updateComment={this.updateComment}
+
+        />
+
+        <SimpleMap />
+
         {this.state.image.map((image, i) => {
           return (
             <Image
@@ -83,18 +111,9 @@ class App extends Component {
           )
         }
         )}
-        <SimpleMap />
-
-
-        <Appointments
-          appointments={this.state.appointments}
-          getAllAppointments={this.getAllAppointments}
-          getAllComments={this.getAllComments}
-          updateComment={this.updateComment}
-
-        />
 
       </div>
+      </Span>      
 
 
     )

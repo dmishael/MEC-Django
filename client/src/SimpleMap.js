@@ -19,7 +19,7 @@ class SimpleMap extends Component {
         return (
 
             
-                <div style = {{ height: '50vh', width: '50%'}}>
+                <div style = {{ height: '25vh', width: '100%'}}>
                     <GoogleMapReact
                         apiKey={API_KEY}
                         defaultCenter={this.props.center}

@@ -142,8 +142,8 @@ class Appointment extends Component {
                 <h1>Appointment:</h1>
                 <ul>{this.props.appointment.date}</ul>
                 <ul>{this.props.appointment.time}</ul>
-                <ul>{this.props.appointment.name}</ul>
-                <ul>{this.props.appointment.area}</ul>
+                {/* <ul>{this.props.appointment.name}</ul>
+                <ul>{this.props.appointment.area}</ul> */}
                 <h1>{this.props.comment}</h1>
                 <button onClick={(event) => this.deleteAppointmentData(event)}>Delete</button>
                 <form onSubmit={this.handleEditComment}>

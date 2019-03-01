@@ -1,6 +1,6 @@
 # import django_heroku
 import os
-
+import django_heroku
   
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -33,14 +33,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'corsheaders',
+    'corsheaders',
     'rest_framework',
     'MEC_app',
-    # 'django_heroku',
+    'django_heroku',
 ]
 
 MIDDLEWARE = [
-    # 'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -129,4 +129,5 @@ STATIC_URL = '/static/'
 CORS_ORIGIN_WHITELIST = (
         'localhost:3000/'
 )
-# django_heroku.settings(locals())
+
+django_heroku.settings(locals())
