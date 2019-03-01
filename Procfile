@@ -1,1 +1,1 @@
-web: gunicorn MEC_app.wsgi --log-file 
+web: gunicorn MEC.wsgi --log-file 
