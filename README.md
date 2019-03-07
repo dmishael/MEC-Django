@@ -6,7 +6,7 @@ Stretch Goal: Moving forward I will anable the GoogleMaps API to bring in the ad
 
 Link to my Trello board : https://trello.com/b/9DTzFm5T/gaproject-4ez-mec
 
-Link to my Heroku deployed app: https://fierce-taiga-39831.herokuapp.com/
+Link to my Heroku deployed app: https://ezmec.herokuapp.com/api/v1/appointments/
 
 ERD's and Wireframes:
 
